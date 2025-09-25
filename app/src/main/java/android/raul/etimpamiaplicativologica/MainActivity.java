@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText nota1, nota2, nota3, nota4, numeroFaltas;
+    private EditText nota1, nota2, nota3, nota4, numeroFaltas, nomeAluno;
 
     private Button btnCalcular;
 
@@ -49,17 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         double faltas = Double.parseDouble(numeroFaltas.getText().toString());
 
+        String nome = nomeAluno.getText().toString();
+
         if(media > 7) {
             if (faltas < 20) {
                 resultado.setTextColor(Color.parseColor("#437845"));
-                resultado.setText("Aluno aprovado com média: " + media);
+                resultado.setText("Olá " + nome + ", você foi aprovado com média: " + media);
             } else {
                 resultado.setTextColor(Color.parseColor("#F44336"));
-                resultado.setText("Excesso de faltas " + faltas);
+                resultado.setText("Olá " + nome + ", Você foi reprovado por excesso de faltas " + faltas);
             }
         }else {
             resultado.setTextColor(Color.parseColor("#F44336"));
-            resultado.setText("Aluno Retido com média: " + media);
+            resultado.setText("Olá " + nome + ", Você foi retido com média: " + media);
             }
         }
 
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         numeroFaltas = findViewById(R.id.numeroFaltas);
         btnCalcular = findViewById(R.id.btn_calcular);
         resultado = findViewById(R.id.txt_resultado);
+        nomeAluno = findViewById(R.id.nomeAluno);
     }
 
 }
